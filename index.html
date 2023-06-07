@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Intro component with sign up form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit&family=Overpass&family=Poppins&display=swap" rel="stylesheet">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    body {
+      background: rgba(255, 0, 0, 0.507);
+      background-image: url(./images/bg-intro-desktop.png);
+      font-family: 'Poppins', sans-serif;
+    }
+    .container {
+      display: grid;
+      grid-template-areas: "speech title""speech air""speech card""speech card";
+      margin: 80px 130px 40px 100px;
+    }
+    h1 {
+      color:white;
+      font-weight: bold;
+    }
+    h5 {
+      color:white;
+    }
+    input {
+      border: solid 1px rgb(15, 15, 155);
+      margin: 8px 20px 8px 20px;
+      padding: 15px 40px 15px 40px;
+      border-radius: 5px;
+    }
+    .title {
+      grid-area: title;
+      background: rgb(15, 15, 155);
+      padding: 1px 8px 1px 8px;
+      border: solid 0px blue;
+      border-radius: 5px;
+      text-align: center;
+    }
+    button {
+      background-color: rgb(78, 201, 125);
+      color:white;
+      padding: 20px 140px 20px 140px;
+      border: solid rgb(51, 124, 84) 1px;
+      border-radius: 4px;
+    }
+    .card {
+      grid-area: card;
+      background: white;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.644);
+      border-radius: 6px;
+      padding: 30px 20px 10px 20px;
+    }
+    .speech {
+      grid-area: speech;
+      margin-top: 140px;
+      margin-right: 9px;
+    }
+    .br {
+      grid-area: air;
+    }
+    .small{
+      font-size: 12px;
+    }
+    .error{
+      display:none;
+    }
+    .bro2 {
+      display: block;
+      position: absolute;
+      top: 29.5%;
+      right: 185px;
+}
+.hell {
+  display: none;
+}
+.bro{
+  display: all;
+  text-align: right;
+  font-size: .7rem;
+  color: red;
+  font-style: italic;
+}
+  </style>
+</head>
+<body><div class="container">
+<div class="speech">
+  <h1>Learn to code by watching others</h1>
+
+  <h5>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, 
+  but understanding how developers think is invaluable. </h5>
+</div>
+<div class="title">
+  <h5 style="font-weight: bold;">Try it free 7 days then $20/mo. thereafter</h5>
+</div><div class="br"><br></div>
+<div class="card">
+  <input id ="i1" type="text" name="First Name" size = "40">    <p id="p1" class="hell">First name cannot be empty</p>
+  <input id ="i2" type="text" name="Last Name" size = "40">     <p id="p2" class="hell">Last name cannot be empty</p> 
+  <input id ="i3" type="text" name="Email address" size = "40"> <p id="p3" class="hell">This isn't an email</p> 
+  <input id ="i4" type="text" name="Password" size = "40">      <p id="p4" class="hell">password must be longer</p> 
+  <br><br>
+
+  <button id="btn" onclick="check() ">Claim your free trial</button>
+
+  <p class="small" style="color: grey;">By clicking the button, you are agreeing to our Terms and Services</p>
+</div>
+</div>
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/bebo41" target="_blank">Bebo</a>.
+    </p>
+  </footer>
+  <script>    
+function check() {
+    var num = 4;
+    var p =document.querySelector("#p1");
+    var p2 =document.querySelector("#p2");
+    var p4 =document.querySelector("#p4");
+    var i = document.querySelector("#i1").value;
+    var i2 = document.querySelector("#i2").value;
+    
+    var i4 = document.querySelector("#i4").value;
+  console.log("run");
+  if (i === ""){
+    console.log("run1");
+    p.setAttribute("class", "bro");
+  };
+  if (i !== "") {
+    console.log("passed");
+    p.innerHTML="";
+  };
+  if (i2 === ""){
+    console.log("run2");
+    p2.setAttribute("class", "bro");
+  };
+  if (i2 !== "") {
+    console.log("passed");
+    p2.innerHTML="";
+  };
+  if (i4.length <= num){
+    console.log("run4");
+    p4.setAttribute("class", "bro");
+  };
+  if (i4.length > num) {
+    console.log("passed");
+    p4.innerHTML="";
+  };
+}
+var btn = document.querySelector("#btn");
+btn.addEventListener("click", email)
+function email() {
+  var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  var i3 = document.querySelector("#i3").value;
+  var p3 =document.querySelector("#p3");
+  console.log("check email");
+if (i3.match(pattern)){
+    console.log("run3");
+    p3.innerHTML="";
+  }
+else{
+    console.log("passed");
+    p3.setAttribute("class", "bro");
+}
+}
+if (p.class="bro"){
+  p.innerHTML="OMG";
+}
+  </script>
+</body>
+</html>
